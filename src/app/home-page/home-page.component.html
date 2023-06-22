@@ -4,17 +4,9 @@
     <div *ngIf='!loc' id='search'>
         <h1>Busca tu localización</h1>
     </div>
-
-    <mat-grid-list cols="1" *ngIf='loc'>
-        <mat-grid-tile>
-            <app-current-weather></app-current-weather>
-        </mat-grid-tile>
-        <mat-grid-tile>
-            <app-forecast></app-forecast>
-        </mat-grid-tile>
-        <mat-grid-tile>
-            <app-uv></app-uv>
-        </mat-grid-tile>
-    </mat-grid-list>
-
+    <div *ngIf='loc'>
+        <app-current-weather></app-current-weather>
+        <app-forecast></app-forecast>
+        <app-uv></app-uv>
+    </div>
 </div>

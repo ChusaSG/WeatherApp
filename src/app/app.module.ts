@@ -24,11 +24,6 @@ import { ForecastComponent } from './forecast/forecast.component';
 import { UvComponent } from './uv/uv.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { HttpClientModule } from '@angular/common/http';
-import { registerLocaleData } from '@angular/common';
-import localeEs from '@angular/common/locales/es';
-
-registerLocaleData(localeEs);
-
 
 
 @NgModule({

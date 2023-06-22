@@ -1,62 +1,68 @@
 #title {
     margin-right: 30px;
-}
-
-.mat-mdc-form-field-subscript-wrapper {
-    display: none!important;
+    font-size: 15px;
 }
 
 .mat-form-field {
     font-size: 13px;
-}
-
-.mat-button {
-    height: 33px;
+    &.mat-form-field-appearance-legacy {
+        .mat-form-field-underline,
+        .mat-form-field-ripple {
+            background-color: #fff;
+            border-bottom-color: #fff;
+        }
+        &.mat-focused {
+            .mat-form-field-underline,
+            .mat-form-field-ripple {
+                background-color: #fff;
+                border-bottom-color: #fff;
+            }
+            .mat-form-field-label {
+                color: #fff;
+                border-bottom-color: #fff;
+            }
+            .mat-input-element {
+                caret-color: #fff;
+                color: #fff;
+                border-bottom-color: #fff;
+            }
+        }
+    }
+    &.mat-form-field-invalid {
+        .mat-input-element,
+        .mat-form-field-ripple {
+            color: #fff;
+            border-bottom-color: #fff;
+        }
+    }
+    &.mat-warn {
+        .mat-input-element,
+        .mat-form-field-ripple {
+            color: #fff;
+            border-bottom-color: #fff;
+        }
+    }
+    .placeholder {
+        color: #fff;
+    }
 }
 
 .mat-toolbar {
     background-color: rgb(31, 63, 90);
-    color: white;
+    color: #fff;
+}
+
+.mdc-button {
+    border-radius: unset;
+    margin-left: 10px;
+    &:hover {
+        background-color: rgb(95, 147, 189);
+    }
 }
 
 .mat-error,
 .mat-form-field-invalid .mat-input-element,
 .mat-warn .mat-input-element {
-    color: white !important;
-    border-bottom-color: white !important;
-}
-
-.mat-focused .placeholder {
-    color: white;
-}
-
-::ng-deep .form-field.mat-form-field-appearance-legacy .mat-form-field-underline,
-.form-field.mat-form-field-appearance-legacy .mat-form-field-ripple,
-.form-field.mat-form-field-appearance-legacy.mat-focused .mat-form-field-underline,
-.form-field.mat-form-field-appearance-legacy.mat-focused .mat-form-field-ripple {
-    background-color: white !important;
-    border-bottom-color: white !important;
-}
-
-
-/** Overrides label color **/
-
-::ng-deep .form-field.mat-form-field-appearance-legacy .mat-form-field-label,
-.form-field.mat-form-field-appearance-legacy.mat-focused .mat-form-field-label {
-    color: white !important;
-    border-bottom-color: white !important;
-}
-
-
-/** Overrides caret & text color **/
-
-::ng-deep .form-field.mat-form-field-appearance-legacy .mat-input-element {
-    caret-color: white !important;
-    color: white !important;
-    border-bottom-color: white !important;
-}
-
-::ng-deep .mat-form-field-underline,
-::ng-deep .mat-form-field-ripple {
-    background-color: white !important;
+    color: #fff;
+    border-bottom-color: #fff;
 }
