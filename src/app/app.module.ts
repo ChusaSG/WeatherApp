@@ -10,11 +10,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { HomePageComponent } from './home-page/home-page.component';
 import { StoreModule } from '@ngrx/store';
 import { locationReducer } from './location-reducer';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { IconsWeatherComponent } from './icons-weather/icons-weather.component';
 import { FormsModule } from '@angular/forms';
 import { WeatherService } from './services/weather.service';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
@@ -22,6 +24,11 @@ import { ForecastComponent } from './forecast/forecast.component';
 import { UvComponent } from './uv/uv.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { HttpClientModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+
+registerLocaleData(localeEs);
+
 
 
 @NgModule({
@@ -29,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HomePageComponent,
     TopBarComponent,
+    IconsWeatherComponent,
     CurrentWeatherComponent,
     ForecastComponent,
     UvComponent,
@@ -49,7 +57,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     HttpClientModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule
   ],
   providers: [
     WeatherService

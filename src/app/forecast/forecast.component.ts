@@ -6,7 +6,7 @@ import { WeatherService } from '../services/weather.service';
 @Component({
   selector: 'app-forecast',
   templateUrl: './forecast.component.html',
-  styleUrls: ['./forecast.component.css']
+  styleUrls: ['./forecast.component.scss']
 })
 export class ForecastComponent implements OnInit {
   loc$: Observable<string>;
@@ -37,7 +37,7 @@ export class ForecastComponent implements OnInit {
       .subscribe(res => {
         this.currentWeather = res;
       }, err => {
-
+        alert('Error al buscar el tiempo.');
       }, () => {
         this.searchForecast(loc);
       })
@@ -48,7 +48,7 @@ export class ForecastComponent implements OnInit {
       .subscribe(res => {
         this.forecast = res;
       }, err => {
-
+        alert('Error al buscar la previsión.');
       })
   }
 

@@ -6,7 +6,7 @@ import { WeatherService } from '../services/weather.service';
 @Component({
   selector: 'app-uv',
   templateUrl: './uv.component.html',
-  styleUrls: ['./uv.component.css']
+  styleUrls: ['./uv.component.scss']
 })
 export class UvComponent implements OnInit {
   loc$: Observable<string>;
