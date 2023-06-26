@@ -59,24 +59,38 @@ export class ForecastComponent implements OnInit {
 
   getUniqueDays() {
     const uniqueDays: any[] = [];
-    const dayMap = new Map<number, boolean>();
+    const dayMap = new Map<number, any>();
 
-    for (const forecastItem of this.forecast.list) {
-      const forecastDate = new Date(forecastItem.dt * 1000);
-      const dayKey = new Date(
-        forecastDate.getFullYear(),
-        forecastDate.getMonth(),
-        forecastDate.getDate()
-      ).getTime();
+    if (this.forecast.list) { // Verificar si this.forecast.list tiene un valor
+      for (const forecastItem of this.forecast.list) {
+        const forecastDate = new Date(forecastItem.dt * 1000);
+        const dayKey = new Date(
+          forecastDate.getFullYear(),
+          forecastDate.getMonth(),
+          forecastDate.getDate()
+        ).getTime();
 
-      if (!dayMap.has(dayKey)) {
-        dayMap.set(dayKey, true);
-        uniqueDays.push(forecastItem);
+        if (!dayMap.has(dayKey)) {
+          dayMap.set(dayKey, forecastItem);
+        } else {
+          const existingItem = dayMap.get(dayKey);
+          if (forecastItem.main.temp_min < existingItem.main.temp_min) {
+            existingItem.main.temp_min = forecastItem.main.temp_min;
+          }
+          if (forecastItem.main.temp_max > existingItem.main.temp_max) {
+            existingItem.main.temp_max = forecastItem.main.temp_max;
+          }
+        }
       }
+
+      dayMap.forEach(value => {
+        uniqueDays.push(value);
+      });
     }
 
     return uniqueDays;
   }
+
 
   resultFound() {
     return Object.keys(this.currentWeather).length > 0;

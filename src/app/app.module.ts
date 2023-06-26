@@ -10,7 +10,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSliderModule } from '@angular/material/slider'
 import { MatInputModule } from '@angular/material/input';
 import { HomePageComponent } from './home-page/home-page.component';
 import { StoreModule } from '@ngrx/store';
@@ -51,11 +52,13 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     MatDividerModule,
     MatListModule,
-    MatGridListModule
+    MatSliderModule,
+    MatGridListModule,
   ],
   providers: [
     WeatherService
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

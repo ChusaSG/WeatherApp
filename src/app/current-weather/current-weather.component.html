@@ -2,19 +2,32 @@
     <mat-card-header>
         <div mat-card-avatar class="icon">
             <app-icons-weather [currentWeather]="currentWeather"></app-icons-weather>
+            <h3>{{currentWeather.main?.temp - 273.15 | number:'1.0-0'}}<sup><small>o</small></sup>C</h3>
         </div>
-        <mat-card-title>{{ currentWeather.name }}</mat-card-title>
+        <mat-card-title>Tiempo actual en {{ currentWeather.name }}</mat-card-title>
         <mat-card-subtitle>{{ currentWeather.dt * 1000 | date:'d/MM/yy' }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <div class="description" *ngFor="let weather of currentWeather.weather">
+        <div class="weather-description" *ngFor="let weather of currentWeather.weather">
             <p>{{ weather.description }}</p>
+        </div>
+        <div class="weather-sensation">
+            <p>Sensación de: {{currentWeather.main?.feels_like - 273.15 | number:'1.0-0'}}<sup><small>o</small></sup>C</p>
+        </div>
+        <div class="weather-humidity">
+            <p>Humedad: {{currentWeather.main?.humidity}}%</p>
         </div>
     </mat-card-content>
     <mat-card-footer>
-        <div class="weather-min-max">
-            <p>{{currentWeather.main.temp_min - 273.15 | number:'1.0-0'}}<sup><small>o</small></sup>C / {{currentWeather.main.temp_max - 273.15 | number:'1.0-0'}}<sup><small>o</small></sup>C</p>
+        <!-- <div class="weather-sensation">
+            <p>Sensación de: {{currentWeather.main?.feels_like - 273.15 | number:'1.0-0'}}<sup><small>o</small></sup>C</p>
         </div>
+        <div class="weather-humidity">
+            <p>Humedad: {{currentWeather.main?.humidity}}%</p>
+        </div>
+        <div class="weather-min-max">
+            <p>{{currentWeather.main?.temp_min - 273.15 | number:'1.0-0'}}<sup><small>o</small></sup>C / {{currentWeather.main?.temp_max - 273.15 | number:'1.0-0'}}<sup><small>o</small></sup>C</p>
+        </div> -->
     </mat-card-footer>
 </mat-card>
 <div *ngIf="!resultFound()">
