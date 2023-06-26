@@ -1,9 +1,9 @@
-<div *ngIf='resultFound()'>
-    <h1 class="center">Pronóstico para {{currentWeather.name}}</h1>
-    <mat-card *ngFor='let l of forecast.list' class="mat-elevation-z18">
+<div *ngIf="resultFound()">
+    <h1 class="center">Pronóstico para {{ currentWeather.name }}</h1>
+    <mat-card *ngFor="let day of getUniqueDays()" class="mat-elevation-z18">
         <mat-card-header>
             <mat-card-title>
-                <h2>{{l.dt*1000 | date:'d/MM/yy, h:mm:ss a'}}</h2>
+                <h2>{{ day.dt * 1000 | date:'d/MM/yy' }}</h2>
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
@@ -12,12 +12,12 @@
                     <app-icons-weather [currentWeather]="currentWeather"></app-icons-weather>
                 </div>
                 <div class="weather-min-max">
-                    <p>{{l.main?.temp_min - 273.15 | number:'1.0-0'}}<sup>o</sup>C / {{l.main?.temp_max - 273.15 | number:'1.0-0'}}<sup>o</sup>C</p>
+                    <p>{{ day.main?.temp_min - 273.15 | number:'1.0-0' }}<sup><small>o</small></sup>C / {{ day.main?.temp_max - 273.15 | number:'1.0-0' }}<sup><small>o</small></sup>C</p>
                 </div>
             </div>
         </mat-card-content>
     </mat-card>
 </div>
-<div *ngIf='!resultFound()'>
-    <h1 class="center">{{msg || 'No se puede obtener el pronóstico' }}</h1>
+<div *ngIf="!resultFound()">
+    <h1 class="center">{{ msg || 'No se puede obtener el pronóstico' }}</h1>
 </div>

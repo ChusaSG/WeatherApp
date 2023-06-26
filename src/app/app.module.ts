@@ -21,7 +21,6 @@ import { FormsModule } from '@angular/forms';
 import { WeatherService } from './services/weather.service';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
 import { ForecastComponent } from './forecast/forecast.component';
-import { UvComponent } from './uv/uv.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -34,7 +33,6 @@ import { HttpClientModule } from '@angular/common/http';
     IconsWeatherComponent,
     CurrentWeatherComponent,
     ForecastComponent,
-    UvComponent,
     AlertsComponent
   ],
   imports: [

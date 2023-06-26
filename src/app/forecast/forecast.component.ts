@@ -11,8 +11,9 @@ import { WeatherService } from '../services/weather.service';
 export class ForecastComponent implements OnInit {
   loc$: Observable<string>;
   loc: string | undefined;
-  currentWeather: any = <any>{};
-  forecast: any = <any>{};
+  currentWeather: any = {};
+  forecast: any = {};
+  uniqueForecast: any[] = [];
   msg: string | undefined;
 
   constructor(
@@ -23,37 +24,61 @@ export class ForecastComponent implements OnInit {
     this.loc$.subscribe(loc => {
       this.loc = loc;
       this.searchWeather(loc);
-    })
+    });
   }
 
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   searchWeather(loc: string) {
     this.msg = '';
     this.currentWeather = {};
-    this.weatherService.getCurrentWeather(loc)
-      .subscribe(res => {
+    this.weatherService.getCurrentWeather(loc).subscribe(
+      res => {
         this.currentWeather = res;
-      }, err => {
+      },
+      err => {
         alert('Error al buscar el tiempo.');
-      }, () => {
+      },
+      () => {
         this.searchForecast(loc);
-      })
+      }
+    );
   }
 
   searchForecast(loc: string) {
-    this.weatherService.getForecast(loc)
-      .subscribe(res => {
+    this.weatherService.getForecast(loc).subscribe(
+      res => {
         this.forecast = res;
-      }, err => {
+        this.uniqueForecast = this.getUniqueDays();
+      },
+      err => {
         alert('Error al buscar la previsión.');
-      })
+      }
+    );
+  }
+
+  getUniqueDays() {
+    const uniqueDays: any[] = [];
+    const dayMap = new Map<number, boolean>();
+
+    for (const forecastItem of this.forecast.list) {
+      const forecastDate = new Date(forecastItem.dt * 1000);
+      const dayKey = new Date(
+        forecastDate.getFullYear(),
+        forecastDate.getMonth(),
+        forecastDate.getDate()
+      ).getTime();
+
+      if (!dayMap.has(dayKey)) {
+        dayMap.set(dayKey, true);
+        uniqueDays.push(forecastItem);
+      }
+    }
+
+    return uniqueDays;
   }
 
   resultFound() {
     return Object.keys(this.currentWeather).length > 0;
   }
-
 }
