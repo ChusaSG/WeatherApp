@@ -21,6 +21,10 @@
             </ng-container>
         </mat-card>
     </div>
+    <div class="nav">
+        <button class="prev"><i class="fas fa-arrow-left fa-2x"></i></button>
+        <button class="next"><i class="fas fa-arrow-right fa-2x"></i></button>
+    </div>
 </div>
 <div *ngIf="!resultFound()">
     <h1 class="center">{{ msg || 'No se puede obtener el pronóstico' }}</h1>

@@ -2,12 +2,12 @@
     <mat-card-header>
         <div mat-card-avatar class="icon">
             <app-icons-weather [currentWeather]="currentWeather"></app-icons-weather>
-            <h3>{{currentWeather.main?.temp - 273.15 | number:'1.0-0'}}<sup><small>o</small></sup>C</h3>
+            <h2>{{currentWeather.main?.temp - 273.15 | number:'1.0-0'}}<sup><small>o</small></sup>C</h2>
         </div>
-        <mat-card-title>Tiempo actual en {{ currentWeather.name }}</mat-card-title>
-        <mat-card-subtitle>{{ currentWeather.dt * 1000 | date:'d/MM/yy' }}</mat-card-subtitle>
+        <mat-card-title class="title">Tiempo actual en {{ currentWeather.name }}</mat-card-title>
+        <mat-card-subtitle class="subtitle">{{ currentWeather.dt * 1000 | date:'d/MM/yy' }}</mat-card-subtitle>
     </mat-card-header>
-    <mat-card-content>
+    <mat-card-content class="content">
         <div class="weather-description" *ngFor="let weather of currentWeather.weather">
             <p>{{ weather.description }}</p>
         </div>
