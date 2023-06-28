@@ -23,9 +23,4 @@ export class WeatherService {
     return this.http.get(`${environment.apiUrl}/forecast?q=${loc}&start=${startDate}&end=${endDate}&appid=${apiKey}&lang=${language}`)
   }
 
-  // getUv(lat: number, lon: number) {
-  //   const startDate = Math.round(+moment(new Date()).subtract(1, 'week').toDate() / 1000);
-  //   const endDate = Math.round(+moment(new Date()).add(1, 'week').toDate() / 1000);
-  //   return this.http.get(`${environment.apiUrl}/uvi/history?lat=${lat}&lon=${lon}&start=${startDate}&end=${endDate}&appid=${apiKey}`)
-  // }
 }
