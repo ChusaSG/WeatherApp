@@ -8,9 +8,8 @@
     }
 }
 
-app-current-weather,
-app-forecast {
-    display: flex;
-    justify-content: center;
+#container {
+    height: 100vh;
     padding: 15px;
+    background-color: rgb(33 77 134 / 15%);
 }

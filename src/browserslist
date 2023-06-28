@@ -1,11 +1,42 @@
-# This file is currently used by autoprefixer to adjust CSS to support the below specified browsers
-# For additional information regarding the format and rule options, please see:
-# https://github.com/browserslist/browserslist#queries
-#
-# For IE 9-11 support, please remove 'not' from the last line of the file and adjust as needed
 
 <!-- > 0.5%
 last 2 versions
 Firefox ESR
 not dead
-not IE 9-11 -->
+not IE 9-11
+and_chr 114
+and_ff 113
+and_qq 13.1
+and_uc 13.4
+android 114
+chrome 114
+chrome 113
+chrome 112
+chrome 111
+chrome 109
+edge 114
+edge 113
+edge 112
+firefox 114
+firefox 113
+firefox 112
+firefox 102
+ios_saf 16.5
+ios_saf 16.4
+ios_saf 16.3
+ios_saf 16.2
+ios_saf 16.1
+ios_saf 16.0
+ios_saf 15.6
+kaios 3.0-3.1
+kaios 2.5
+op_mini all
+op_mob 73
+opera 99
+opera 98
+safari 16.5
+safari 16.4
+safari 16.3
+safari 15.6
+samsung 21
+samsung 20-->

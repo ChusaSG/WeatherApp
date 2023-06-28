@@ -1,20 +1,10 @@
-.carousel-container {
-    overflow: hidden;
-    .carousel {
-        display: flex;
-        overflow-x: scroll;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        scroll-padding: 20px;
-        .carousel-item {
-            flex: 0 0 auto;
-            width: 300px;
-            scroll-snap-align: start;
-            margin-right: 10px;
-            transition: transform 0.3s ease;
-            &.active {
-                transform: scale(1.1);
-            }
-        }
+.center {
+    margin: 25px 0;
+    text-align: center;
+}
+
+.card {
+    &.slide {
+        margin: 20px 0;
     }
 }

@@ -15,6 +15,7 @@ export class ForecastComponent implements OnInit {
   forecast: any = {};
   uniqueForecast: any[] = [];
   msg: string | undefined;
+  customOptions: any = {}; // Agrega la propiedad customOptions y asígnale un valor adecuado
 
   constructor(
     private store: Store<any>,
@@ -27,7 +28,28 @@ export class ForecastComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // Configura las opciones personalizadas del carrusel
+    this.customOptions = {
+        mouseDrag: true,
+        touchDrag: true,
+        pullDrag: false,
+        dots: true,
+        nav: false,
+        autoHeight: true,
+        margin:10,
+        navSpeed: 600,
+        responsive: {
+          0: {
+            items: 2
+          },
+          400: {
+            items: 3
+          }
+        },
+
+      }
+  }
 
   searchWeather(loc: string) {
     this.msg = '';
@@ -61,7 +83,7 @@ export class ForecastComponent implements OnInit {
     const uniqueDays: any[] = [];
     const dayMap = new Map<number, any>();
 
-    if (this.forecast.list) { // Verificar si this.forecast.list tiene un valor
+    if (this.forecast.list) {
       for (const forecastItem of this.forecast.list) {
         const forecastDate = new Date(forecastItem.dt * 1000);
         const dayKey = new Date(
@@ -91,8 +113,8 @@ export class ForecastComponent implements OnInit {
     return uniqueDays;
   }
 
-
   resultFound() {
     return Object.keys(this.currentWeather).length > 0;
   }
+
 }

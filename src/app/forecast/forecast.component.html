@@ -1,30 +1,28 @@
 <div *ngIf="resultFound()">
     <h2 class="center">Pronóstico para {{ currentWeather.name }}</h2>
-    <div class="carousel">
-        <mat-card *ngFor="let day of getUniqueDays(); let i = index" class="card">
-            <ng-container *ngIf="i > 0">
-                <mat-card-header>
-                    <mat-card-title>
-                        {{ day.dt * 1000 | date:'d/MM/yy' }}
-                    </mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                    <div class="weather-info">
-                        <div class="weather-icon">
-                            <app-icons-weather [currentWeather]="currentWeather"></app-icons-weather>
+    <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let day of getUniqueDays(); let i = index">
+            <ng-template carouselSlide *ngIf="i > 0">
+                <mat-card class="card slide">
+                    <mat-card-header>
+                        <mat-card-title>
+                            {{ day.dt * 1000 | date:'d/MM/yy' }}
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="weather-info">
+                            <div class="weather-icon">
+                                <app-icons-weather [currentWeather]="currentWeather"></app-icons-weather>
+                            </div>
+                            <div class="weather-min-max">
+                                <p>{{ day.main?.temp_min - 273.15 | number:'1.0-0' }}<sup><small>o</small></sup>C / {{ day.main?.temp_max - 273.15 | number:'1.0-0' }}<sup><small>o</small></sup>C</p>
+                            </div>
                         </div>
-                        <div class="weather-min-max">
-                            <p>{{ day.main?.temp_min - 273.15 | number:'1.0-0' }}<sup><small>o</small></sup>C / {{ day.main?.temp_max - 273.15 | number:'1.0-0' }}<sup><small>o</small></sup>C</p>
-                        </div>
-                    </div>
-                </mat-card-content>
-            </ng-container>
-        </mat-card>
-    </div>
-    <div class="nav">
-        <button class="prev"><i class="fas fa-arrow-left fa-2x"></i></button>
-        <button class="next"><i class="fas fa-arrow-right fa-2x"></i></button>
-    </div>
+                    </mat-card-content>
+                </mat-card>
+            </ng-template>
+        </ng-container>
+    </owl-carousel-o>
 </div>
 <div *ngIf="!resultFound()">
     <h1 class="center">{{ msg || 'No se puede obtener el pronóstico' }}</h1>

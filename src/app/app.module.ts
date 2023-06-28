@@ -24,6 +24,7 @@ import { CurrentWeatherComponent } from './current-weather/current-weather.compo
 import { ForecastComponent } from './forecast/forecast.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     MatSliderModule,
     MatGridListModule,
+    CarouselModule
   ],
   providers: [
     WeatherService
