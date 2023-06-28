@@ -43,9 +43,6 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     BrowserAnimationsModule,
     MatButtonModule,
     MatToolbarModule,
-    StoreModule.forRoot({
-      loc: locationReducer
-    }),
     FormsModule,
     MatInputModule,
     MatTabsModule,
@@ -55,7 +52,10 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     MatListModule,
     MatSliderModule,
     MatGridListModule,
-    CarouselModule
+    CarouselModule,
+    StoreModule.forRoot({
+      loc: locationReducer
+    }),
   ],
   providers: [
     WeatherService
