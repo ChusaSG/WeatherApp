@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { SET_LOCATION } from '../location-reducer';
 import { NgForm } from '@angular/forms';
 
+
 @Component({
   selector: 'app-top-bar',
   templateUrl: './top-bar.component.html',

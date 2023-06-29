@@ -1,25 +1,33 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { WeatherService } from '../services/weather.service';
 
-import { CurrentWeatherComponent } from './current-weather.component';
-
-describe('CurrentWeatherComponent', () => {
-  let component: CurrentWeatherComponent;
-  let fixture: ComponentFixture<CurrentWeatherComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ CurrentWeatherComponent ]
-    })
-    .compileComponents();
-  }));
+describe('WeatherService', () => {
+  let service: WeatherService;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CurrentWeatherComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [WeatherService]
+    });
+    service = TestBed.inject(WeatherService);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+
+  it('should get current weather', () => {
+    // Prueba el método getCurrentWeather()
+    const loc = 'London';
+    const result = service.getCurrentWeather(loc);
+
+  });
+
+  it('should get forecast', () => {
+    // Prueba el método getForecast()
+    const loc = 'London';
+    const result = service.getForecast(loc);
+
   });
 });

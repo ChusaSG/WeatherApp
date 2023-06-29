@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { IconsWeatherComponent } from './icons-weather.component';
 
 describe('IconsWeatherComponent', () => {
